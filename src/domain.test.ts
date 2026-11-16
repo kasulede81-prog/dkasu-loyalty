@@ -47,4 +47,10 @@ describe("DKASU Loyalty standalone repo contracts", () => {
     const pkg = JSON.parse(read("package.json")) as { scripts: Record<string, string> };
     expect(pkg.scripts.build).toContain("vite build");
   });
+
+  it("production Vite config warns instead of hard-failing when env is missing", () => {
+    const vite = read("vite.config.ts");
+    expect(vite).toContain("console.warn");
+    expect(vite).not.toMatch(/throw new Error\(\s*["']Set VITE_SUPABASE/);
+  });
 });

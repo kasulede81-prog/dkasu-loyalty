@@ -12,12 +12,16 @@
 | Output Directory | `dist` |
 | Supabase | `ljaedextsenbkxzzgxcg` (shared with POS) |
 
-## Browser environment
+## Browser environment (required for Preview + Production)
+
+In Vercel → Project → Settings → Environment Variables, set for **Preview** and **Production**:
 
 ```
 VITE_SUPABASE_URL=https://ljaedextsenbkxzzgxcg.supabase.co
 VITE_SUPABASE_ANON_KEY=<shared publishable/anon key>
 ```
+
+These are embedded at **build** time. If they are missing, `npm run build` still succeeds, but the live app shows that database settings are missing. Redeploy after adding or changing them.
 
 Never set `service_role`, database passwords, or Wallet HMAC secrets in `VITE_*`.
 
