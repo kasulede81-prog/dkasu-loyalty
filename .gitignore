@@ -1,0 +1,17 @@
+# Dependencies & build
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+
+# Local env (never commit secrets)
+.env
+.env.*
+!.env.example
+
+# Editor / tooling
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.vercel/
